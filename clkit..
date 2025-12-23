@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorry My Love</title>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff6a88, #ff99ac);
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3em;
+        color: white;
+        text-shadow: 2px 2px 10px #000;
+    }
+
+    h2 {
+        color: white;
+        font-weight: 300;
+        margin-top: 14px;
+        line-height: 1.4;
+        text-shadow: 1px 1px 6px #000;
+    }
+
+    .butterfly {
+        position: absolute;
+        font-size: 24px;
+        animation: fly linear infinite;
+        opacity: 0.9;
+    }
+
+    @keyframes fly {
+        from {
+            transform: translateY(110vh) translateX(0);
+        }
+        to {
+            transform: translateY(-120vh) translateX(200px);
+        }
+    }
+
+    .play-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255,255,255,0.85);
+        padding: 10px 16px;
+        border-radius: 22px;
+        cursor: pointer;
+        font-size: 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+</style>
+</head>
+
+<body>
+
+<div>
+    <h1>💖 Sorry, My Love 💖</h1>
+    <h2>
+        I love you more than my thoughts,<br>
+        my words, and even my silence can show.
+    </h2>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="play-btn" onclick="playMusic()">▶ Play Music</div>
+
+<script>
+    // Butterflies
+    const butterflyCount = 80;
+
+    for (let i = 0; i < butterflyCount; i++) {
+        const b = document.createElement("div");
+        b.className = "butterfly";
+        b.innerHTML = "🦋";
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.fontSize = (18 + Math.random() * 30) + "px";
+        b.style.animationDuration = (5 + Math.random() * 7) + "s";
+        document.body.appendChild(b);
+    }
+
+    function playMusic() {
+        document.getElementById("bgMusic").play();
+    }
+</script>
+
+</body>
+</html>
